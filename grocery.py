@@ -1,55 +1,76 @@
+#Importing Libs
+
 import mysql.connector
+
 import tkinter as tk
 from tkinter import * 
 import tkinter
-from PIL import ImageTk,Image
-from functools import partial
 from tkinter import messagebox
 import tkinter.ttk as ttk
+
+from PIL import ImageTk,Image
+from functools import partial
+
 import datetime
 from datetime import date
 from datetime import datetime
+
 from math import *
+
 root = Tk()
+
 root.geometry("1600x1370")
 root.title("Grossiste")
+
 screen = StringVar()
 screen.set("0")
+
 current = ""
 power = ""
+
 firstnum = str()
 secondnum = str()
 mathsign = str()
 defxworking = False
 percentt = False
+
 my_connect = mysql.connector.connect(
   host="localhost",
   user="root", 
   passwd="",
   database="grossiste"
 )
+
 my_conn = my_connect.cursor()
 my_conn.execute("SELECT * FROM produits ORDER BY produit_id DESC")
+
 e=Label(root,width=17,text='ID',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=0)
+
 e=Label(root,width=17,text='Nom',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=1)
+
 e=Label(root,width=17,text='Description',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=2)
+
 e=Label(root,width=17,text='Quantité',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=3)
+
 e=Label(root,width=17,text="Date D'ajout",borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=4)
+
 e=Label(root,width=17,text='Prix',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=5)
+
 i=4
+
 now = datetime.now().time()
 
-for student in my_conn: 
-    for j in range(len(student)):
+for product in my_conn: 
+    for j in range(len(product)):
         e = Entry(root, width=17,borderwidth=1, fg='black',relief="ridge",font=("Arial", 18)) 
         e.grid(row=i, column=j) 
-        e.insert(END, student[j]) 
+        e.insert(END, product[j]) 
     i=i+1
 
 def clock():
