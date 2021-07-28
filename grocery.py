@@ -20,7 +20,7 @@ from math import *
 root = Tk()
 
 root.geometry("1600x1370")
-root.title("Grossiste")
+root.title("Grocery")
 
 screen = StringVar()
 screen.set("0")
@@ -47,19 +47,19 @@ my_conn.execute("SELECT * FROM produits ORDER BY produit_id DESC")
 e=Label(root,width=17,text='ID',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=0)
 
-e=Label(root,width=17,text='Nom',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
+e=Label(root,width=17,text='Name',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=1)
 
 e=Label(root,width=17,text='Description',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=2)
 
-e=Label(root,width=17,text='Quantité',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
+e=Label(root,width=17,text='Quantity',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=3)
 
-e=Label(root,width=17,text="Date D'ajout",borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
+e=Label(root,width=17,text="Add date",borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=4)
 
-e=Label(root,width=17,text='Prix',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
+e=Label(root,width=17,text='Price',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
 e.grid(row=3,column=5)
 
 i=4
@@ -118,7 +118,7 @@ def ajouter():
 def rechercher():
     main=Toplevel(root)
     main.geometry('260x300')
-    main.title("Rechercher Un Produit")
+    main.title("Search")
     def rechercherProduit():
         productname = input_product_name.get()
         my_conn.execute("SELECT * FROM produits WHERE nom OR description LIKE '%"+productname+"%'")
@@ -136,7 +136,7 @@ def supprimer():
     main.geometry('260x300')
     main.maxsize(width = 260,height = 300)
     main.minsize(width = 260,height = 300)    
-    main.title("Supprimer Un Produit")
+    main.title("Delete Product")
     def supprimerProduit():
         productname = input_product_name.get()
         my_conn.execute("DELETE FROM produits WHERE nom = '"+productname+"'")
@@ -154,7 +154,7 @@ def vendre():
     main.geometry('260x300')
     main.maxsize(width = 260,height = 300)
     main.minsize(width = 260,height = 300)    
-    main.title("Supprimer Un Produit")
+    main.title("Sell Produit")
     def vendreProduit():
         quantity = input_product_quantity.get()
         name = input_product_name.get()
@@ -164,9 +164,9 @@ def vendre():
     text=DoubleVar()
     text2=DoubleVar()
     var=StringVar()
-    Label(main, text="Nom Du Produit",font=("Arial", 12)).grid(column=0,row=1)
+    Label(main, text="Product Name",font=("Arial", 12)).grid(column=0,row=1)
     Entry(main, textvariable=input_product_name,width=40).grid(column=0, row=2,ipady=4)
-    Label(main, text="Quantité",font=("Arial", 12)).grid(column=0,row=3)
+    Label(main, text="Quantity",font=("Arial", 12)).grid(column=0,row=3)
     Entry(main, textvariable=input_product_quantity,width=40).grid(column=0, row=4,ipady=4)
 
     Button(main, text="Button", command=vendreProduit,bg="#00b33c",fg="white",width="27",height="2",).grid(column=0, row=5, columnspan=2)
@@ -177,7 +177,7 @@ def Calculatrice():
     main.geometry('210x300')
     main.maxsize(width = 210,height = 300)
     main.minsize(width = 210,height = 300)    
-    main.title("Calculatrice")    
+    main.title("Calculator")    
     def math_button_pressed():
         if mathsign == '+':
             button_plus.config(relief=SUNKEN)
