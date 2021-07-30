@@ -87,6 +87,7 @@ input_product_description = tk.StringVar(root)
 input_product_quantity = tk.StringVar(root)                
 input_product_price = tk.StringVar(root) 
 
+#Add product function
 def ajouter():
     main=Toplevel(root)
     main.geometry('260x300')
@@ -115,6 +116,7 @@ def ajouter():
     Label(main, textvariable=var).grid(column=2, row=9,ipady=4)
     Button(main, text="Button", command=ajouterProduit,bg="#00b33c",fg="white",width="27",height="2",).grid(column=0, row=10, columnspan=2)
 
+#Search function (missing some improvements)
 def rechercher():
     main=Toplevel(root)
     main.geometry('260x300')
@@ -131,6 +133,7 @@ def rechercher():
     Entry(main, textvariable=input_product_name,width=40).grid(column=0, row=2,ipady=4)
     Button(main, text="Button", command=rechercherProduit,bg="#00b33c",fg="white",width="27",height="2",).grid(column=0, row=3, columnspan=2)
 
+#Delete product function    
 def supprimer():
     main=Toplevel(root)
     main.geometry('260x300')
@@ -148,7 +151,8 @@ def supprimer():
     Entry(main, textvariable=input_product_name,width=40).grid(column=0, row=2,ipady=4)
 
     Button(main, text="Button", command=supprimerProduit,bg="#00b33c",fg="white",width="27",height="2",).grid(column=0, row=3, columnspan=2)
-
+    
+#Sell product function
 def vendre():
     main=Toplevel(root)
     main.geometry('260x300')
@@ -171,7 +175,7 @@ def vendre():
 
     Button(main, text="Button", command=vendreProduit,bg="#00b33c",fg="white",width="27",height="2",).grid(column=0, row=5, columnspan=2)
 
-
+#Calculator
 def Calculatrice():
     main=Toplevel(root)
     main.geometry('210x300')
