@@ -19,7 +19,10 @@ from math import *
 
 root = Tk()
 
+# Screen size
 root.geometry("1600x1370")
+
+#Screen title
 root.title("Grocery")
 
 screen = StringVar()
@@ -28,12 +31,14 @@ screen.set("0")
 current = ""
 power = ""
 
+# Used for the calculator
 firstnum = str()
 secondnum = str()
 mathsign = str()
 defxworking = False
 percentt = False
 
+# Database connection
 my_connect = mysql.connector.connect(
   host="localhost",
   user="root", 
@@ -42,6 +47,8 @@ my_connect = mysql.connector.connect(
 )
 
 my_conn = my_connect.cursor()
+
+#SQL query to select products from the database
 my_conn.execute("SELECT * FROM produits ORDER BY produit_id DESC")
 
 e=Label(root,width=17,text='ID',borderwidth=1, relief='ridge',anchor='w',bg='#0066ff',fg="white",font=("Arial", 17))
