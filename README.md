@@ -1,7 +1,7 @@
 # grocery-software
 ### A grocery management GUI software built using python Tkinter
 # Usage:
-## To use this software you need to 
+## To use this software you need to:
 - Install Python and the Tkinter, mysql, library
 - Create a database in phpMyAdmin and upload the grossiste.sql file
 - Run the code: python3 grocery.py
